@@ -34,32 +34,3 @@ starting_stack.forEach(function(element) {
 });
 
 console.log(stack_1.stack);
-
-var sorted = false;
-
-while (!sorted) {
-	var popped_element = stack_1.pop();
-	sorted = true;
-	while (stack_1.peek() !== null) {
-		var top_element = stack_1.peek();
-		if (popped_element > top_element) {
-			stack_2.push(stack_1.pop());
-			sorted = false;
-		}
-		else {
-			stack_2.push(popped_element);
-			popped_element = stack_1.pop();
-		}
-	}
-	stack_2.push(popped_element);
-	flush_stack(stack_2, stack_1);
-	console.log(stack_1);
-	console.log(stack_2);
-}
-
-// Empties the contents of stack_1 into stack_2, thus reversing the order of elements
-function flush_stack(stack_1, stack_2) {
-	while (stack_1.peek() != null) {
-		stack_2.push(stack_1.pop());
-	}
-}
